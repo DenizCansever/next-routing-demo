@@ -1,6 +1,7 @@
-async function Mood({ params }) {
+async function Mood({ params, searchParams }) {
+  console.log({ searchParams });
   const resolvedParams = await params;
-  return JSON.stringify(resolvedParams);
+  return JSON.stringify(searchParams);
 }
 
 export default Mood;

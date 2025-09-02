@@ -3,18 +3,17 @@ import { Globe } from 'react-feather';
 
 import { getProfileInfo } from '../../../helpers';
 
-async function ProfilePage({
-  params,
-  searchParams,
-}) {
+async function ProfilePage({ params, searchParams }) {
   const { profileId } = await params;
 
   const profile = await getProfileInfo(profileId);
 
+  console.log({ params, searchParams });
+
   if (!profile) {
     return (
       <main>
-        <div className="content">
+        <div className='content'>
           <p>Profile not found</p>
         </div>
       </main>
@@ -23,19 +22,17 @@ async function ProfilePage({
 
   return (
     <main>
-      <div className="content">
+      <div className='content'>
         <h1>{profile.name}</h1>
-        <p className="handle">
-          {profile.username}
-        </p>
+        <p className='handle'>{profile.username}</p>
 
-        <p className="bio">{profile.bio}</p>
-        <p className="location">
+        <p className='bio'>{profile.bio}</p>
+        <p className='location'>
           <Globe size={16} />
           {profile.location}
         </p>
 
-        <dl className="stats">
+        <dl className='stats'>
           <dt>Following:</dt>
           <dd>{profile.following}</dd>
           <dt>Followers:</dt>
